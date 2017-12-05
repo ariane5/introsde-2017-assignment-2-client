@@ -1,0 +1,250 @@
+
+
+ Request #1 : GET  /person Accept: application/xml ContentType: application/xml 
+ => Result: error 
+ => HTTP Status: 200
+ <people>
+  <person>
+    <preferences/>
+    <birthdate>17-02-1978</birthdate>
+    <firstname>Jonas JSON</firstname>
+    <idPerson>1</idPerson>
+    <lastname>marco</lastname>
+  </person>
+  <person>
+    <preferences>
+      <activity>
+        <description>swimming</description>
+        <idActivityPreference>1</idActivityPreference>
+        <name>sport</name>
+        <place>Trento city</place>
+        <startdate>2017-09-13T12:00:00.0</startdate>
+      </activity>
+    </preferences>
+    <birthdate>11-12-1988</birthdate>
+    <firstname>john</firstname>
+    <idPerson>2</idPerson>
+    <lastname>john</lastname>
+  </person>
+  <person>
+    <preferences>
+      <activity>
+        <description>football</description>
+        <idActivityPreference>2</idActivityPreference>
+        <name>sport</name>
+        <place>sanbartolameo</place>
+        <startdate>2017-09-13T19:00:00.0</startdate>
+      </activity>
+    </preferences>
+    <birthdate>18-09-1958</birthdate>
+    <firstname>marc</firstname>
+    <idPerson>3</idPerson>
+    <lastname>marc</lastname>
+  </person>
+  <person>
+    <preferences>
+      <activity>
+        <description>discussion</description>
+        <idActivityPreference>3</idActivityPreference>
+        <name>social</name>
+        <place>sanbartolameo</place>
+        <startdate>2017-09-13T20:00:00.0</startdate>
+      </activity>
+    </preferences>
+    <birthdate>19-07-1968</birthdate>
+    <firstname>paul</firstname>
+    <idPerson>4</idPerson>
+    <lastname>paul</lastname>
+  </person>
+  <person>
+    <preferences>
+      <activity>
+        <description>economics</description>
+        <idActivityPreference>4</idActivityPreference>
+        <name>school</name>
+        <place>povo</place>
+        <startdate>2017-09-13T9:00:00.0</startdate>
+      </activity>
+    </preferences>
+    <birthdate>20-10-1990</birthdate>
+    <firstname>esther</firstname>
+    <idPerson>5</idPerson>
+    <lastname>esther</lastname>
+  </person>
+</people>
+
+
+
+ Request #2 : GET  /person/1 Accept: application/xml ContentType: application/xml 
+ => Result: ok 
+ => HTTP Status: 200
+ <person>
+  <preferences/>
+  <birthdate>17-02-1978</birthdate>
+  <firstname>Jonas JSON</firstname>
+  <idPerson>1</idPerson>
+  <lastname>marco</lastname>
+</person>
+
+
+
+ Request #3 : PUT  /person/first_person_id Accept: application/xml ContentType: application/xml 
+ => Result: ok 
+ => HTTP Status: 200
+ <person>
+  <preferences/>
+  <birthdate>17-02-1978</birthdate>
+  <firstname>jonas</firstname>
+  <idPerson>1</idPerson>
+  <lastname>marco</lastname>
+</person>
+
+
+
+ Request #4 : POST  /person Accept: application/xml ContentType: application/xml 
+ => Result: ok 
+ => HTTP Status: 200
+ <person>
+  <birthdate>1-11-1978</birthdate>
+  <firstname>Matthieu</firstname>
+  <idPerson>6</idPerson>
+  <lastname>Marc</lastname>
+</person>
+
+
+
+ Request #5 : GET  /person/7 Accept: application/xml ContentType: application/xml 
+ => Result: ok 
+ => HTTP Status: 200
+ <person>
+  <preferences/>
+  <birthdate>01-01-1967</birthdate>
+  <firstname>Chuck JSON</firstname>
+  <idPerson>7</idPerson>
+  <lastname>Norris</lastname>
+</person>
+
+
+
+ Request #5 : GET  /person/7 Accept: application/xml ContentType: application/xml 
+ => Result: error 
+ => HTTP Status: 200
+ <person>
+  <preferences/>
+  <birthdate>01-01-1967</birthdate>
+  <firstname>Chuck JSON</firstname>
+  <idPerson>7</idPerson>
+  <lastname>Norris</lastname>
+</person>
+
+
+
+ Request #6 : GET  /activity_types Accept: application/xml ContentType: application/xml 
+ => Result: error 
+ => HTTP Status: 200
+ <activities>
+  <activity_type>sport</activity_type>
+  <activity_type>social</activity_type>
+  <activity_type>school</activity_type>
+</activities>
+
+
+
+ Request #7 : GET  /person/first_person_id Accept: application/xml ContentType: application/xml 
+ => Result: ok 
+ => HTTP Status: 200
+ <healthMeasureHistories>
+  <healthMeasureHistory>
+    <description>swimming</description>
+    <activity_id>1</activity_id>
+    <place>Trento city</place>
+    <startdate>2017-09-13T12:00:00.0</startdate>
+  </healthMeasureHistory>
+</healthMeasureHistories>
+
+
+
+ Request #7 : GET  /person/first_person_id Accept: application/xml ContentType: application/xml 
+ => Result: error 
+ => HTTP Status: 200
+ <healthMeasureHistories/>
+
+
+
+ Request #7 : GET  /person/first_person_id Accept: application/xml ContentType: application/xml 
+ => Result: error 
+ => HTTP Status: 200
+ <healthMeasureHistories/>
+
+
+
+ Request #7 : GET  /person/last_person_id Accept: application/xml ContentType: application/xml 
+ => Result: error 
+ => HTTP Status: 200
+ <healthMeasureHistories/>
+
+
+
+ Request #7 : GET  /person/last_person_id Accept: application/xml ContentType: application/xml 
+ => Result: error 
+ => HTTP Status: 200
+ <healthMeasureHistories/>
+
+
+
+ Request #7 : GET  /person/last_person_id Accept: application/xml ContentType: application/xml 
+ => Result: error 
+ => HTTP Status: 200
+ <healthMeasureHistories/>
+
+
+
+ Request #8 : GET  person/1/sport/1 Accept: application/xml ContentType: application/xml 
+ => Result: ok 
+ => HTTP Status: 200
+ <healthMeasureHistory>
+  <description>swimming</description>
+  <activity_id>1</activity_id>
+  <place>Trento city</place>
+  <startdate>2017-09-13T12:00:00.0</startdate>
+</healthMeasureHistory>
+
+
+
+ Request #9 : GET  /person/first_person_id Accept: application/xml ContentType: application/xml 
+ => Result: ok 
+ => HTTP Status: 200
+ <healthMeasureHistories>
+  <healthMeasureHistory>
+    <description>swimming</description>
+    <activity_id>1</activity_id>
+    <place>Trento city</place>
+    <startdate>2017-09-13T12:00:00.0</startdate>
+  </healthMeasureHistory>
+</healthMeasureHistories>
+
+
+
+ Request #9 : POST  /person Accept: application/xml ContentType: application/xml 
+ => Result: ok 
+ => HTTP Status: 200
+ <activitypreference>
+  <description>bike race</description>
+  <idActivityPreference>5</idActivityPreference>
+  <name>sport</name>
+  <place>trento</place>
+  <startdate>1-11-1978</startdate>
+</activitypreference>
+
+
+
+ Request #10 : PUT  person/1/sport/1 Accept: application/xml ContentType: application/xml 
+ => Result: ok 
+ => HTTP Status: 200
+ <healthMeasureHistory>
+  <description>walking</description>
+  <activity_id>3</activity_id>
+  <place>centro citta</place>
+  <startdate>2017-10-13T13:27:00.0</startdate>
+</healthMeasureHistory>
+

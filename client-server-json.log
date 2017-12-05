@@ -1,0 +1,55 @@
+Request #3: PUT /person/first_person_id Accept:application/json Content-type: application/json
+=> Result: ok
+=> HTTP Status: 200
+{"idPerson":1,"firstname":"Jonas JSON","lastname":"marco","birthdate":"17-02-1978","activity":[]}
+
+Request #4: POST /person Accept:application/json Content-type: application/json
+=> Result: ok
+=> HTTP Status: 200
+{"idPerson":7,"firstname":"Chuck JSON","lastname":"Norris","birthdate":"01-01-1967"}
+
+Request #7: GET /person/first_person_id Accept:application/json Content-type: application/json
+=> Result: ok
+=> HTTP Status: 200
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?><healthMeasureHistories><healthMeasureHistory><description>swimming</description><activity_id>1</activity_id><place>Trento city</place><startdate>2017-09-13T12:00:00.0</startdate></healthMeasureHistory></healthMeasureHistories>
+
+Request #7: GET /person/first_person_id Accept:application/json Content-type: application/json
+=> Result: error
+=> HTTP Status: 200
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?><healthMeasureHistories></healthMeasureHistories>
+
+Request #7: GET /person/first_person_id Accept:application/json Content-type: application/json
+=> Result: error
+=> HTTP Status: 200
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?><healthMeasureHistories></healthMeasureHistories>
+
+Request #7: GET /person/last_person_id Accept:application/json Content-type: application/json
+=> Result: error
+=> HTTP Status: 200
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?><healthMeasureHistories></healthMeasureHistories>
+
+Request #7: GET /person/last_person_id Accept:application/json Content-type: application/json
+=> Result: error
+=> HTTP Status: 200
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?><healthMeasureHistories></healthMeasureHistories>
+
+Request #7: GET /person/last_person_id Accept:application/json Content-type: application/json
+=> Result: error
+=> HTTP Status: 200
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?><healthMeasureHistories></healthMeasureHistories>
+
+Request #8: GET person/1/sport/1 Accept:application/json Content-type: application/json
+=> Result: ok
+=> HTTP Status: 200
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?><healthMeasureHistory><description>swimming</description><activity_id>1</activity_id><place>Trento city</place><startdate>2017-09-13T12:00:00.0</startdate></healthMeasureHistory>
+
+Request #9: POST /person/1/sport Accept:application/json Content-type: application/json
+=> Result: ok
+=> HTTP Status: 200
+{"idActivityPreference":6,"name":"sport","description":"bike race","place":"trento","startdate":"1-11-1978"}
+
+Request #10: PUT person/1/sport/1 Accept:application/json Content-type: application/json
+=> Result: ok
+=> HTTP Status: 200
+{"description":"walking","place":"citta","startdate":"1-11-1978","activity_id":3}
+
