@@ -31,7 +31,7 @@ public class ResourceActivity {
 		Request request;
 	    private static int count;
 		// THIS IS NOT WORKING
-		@PersistenceUnit(unitName="assignment")
+		@PersistenceUnit(unitName="assign21")
 		EntityManager entityManager;
 		
 		@POST

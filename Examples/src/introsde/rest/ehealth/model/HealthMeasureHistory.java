@@ -32,7 +32,7 @@ import java.util.List;
 				+ "WHERE h.person = :person AND h.activity = :activity AND h.idMeasureHistory = :activity_id"),
 	@NamedQuery(name="HealthMeasureHistory.findAll", query="SELECT h FROM HealthMeasureHistory h")	
 })
-@XmlRootElement
+@XmlRootElement//(name="activity_type")
 public class HealthMeasureHistory implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -136,7 +136,7 @@ public class HealthMeasureHistory implements Serializable {
 	        LifeCoachDao.instance.closeConnections(em);
 
 	        return list;
-	 }
+        }
 		
 		
 		/**
@@ -158,28 +158,28 @@ public class HealthMeasureHistory implements Serializable {
 	        	.setParameter("activity_id",activity_id)
 	        	.getSingleResult();
 
-	        LifeCoachDao.instance.closeConnections(em);
+	         LifeCoachDao.instance.closeConnections(em);
 
-	        return sr;
+	         return sr;
 	    }
 		
 		
 	public static HealthMeasureHistory saveHistoryByPersonAndTypeAndactivity_id(HealthMeasureHistory h,String  activity_type,int activity_id,int id) {
-	        EntityManager em = LifeCoachDao.instance.createEntityManager();
+	          EntityManager em = LifeCoachDao.instance.createEntityManager();
 	       // MeasureDefinition  md=MeasureDefinition.getMeasureDefinitionByMN(measureType);
-	        Activity a = Activity.getActivityByActivtyType(activity_type);
+	          Activity a = Activity.getActivityByActivtyType(activity_type);
 			Person p= Person.getPersonById(id);
 			h.setActivity(a);
 			h.setPerson(p);
 			h.setIdMeasureHistory(activity_id);
-	        EntityTransaction tx = em.getTransaction();
+	          EntityTransaction tx = em.getTransaction();
 			tx.begin();
 			em.persist(h);
 			tx.commit();
 
-	        LifeCoachDao.instance.closeConnections(em);
+	          LifeCoachDao.instance.closeConnections(em);
 
-	        return h;
+	          return h;
 		}
 		
 		
@@ -188,12 +188,12 @@ public class HealthMeasureHistory implements Serializable {
 		 * get healthmeasurehistory database
 		 * @return
 		 */
+	//@XmlElementWrapper(name = "activity_types")
 	public static List<HealthMeasureHistory> getAll() {
-			
-                 EntityManager em = LifeCoachDao.instance.createEntityManager();
-		 List<HealthMeasureHistory> list = em.createNamedQuery("HealthMeasureHistory.findAll", HealthMeasureHistory.class).getResultList();
-		 LifeCoachDao.instance.closeConnections(em);
-		 return list;
+		    EntityManager em = LifeCoachDao.instance.createEntityManager();
+		    List<HealthMeasureHistory> list = em.createNamedQuery("HealthMeasureHistory.findAll", HealthMeasureHistory.class).getResultList();
+		    LifeCoachDao.instance.closeConnections(em);
+		    return list;
 		}
 		/**
 		 * save history given an healthmeasurehistory , a person id and a name of measure name
@@ -202,22 +202,22 @@ public class HealthMeasureHistory implements Serializable {
 		 * @param mt
 		 * @return
 		 */
-        public static HealthMeasureHistory	saveHistory(HealthMeasureHistory h, int id , String mt){
-			h.setPerson(Person.getPersonById(id));
+	public static HealthMeasureHistory	saveHistory(HealthMeasureHistory h, int id , String mt){
+		    h.setPerson(Person.getPersonById(id));
 		   // h.setMeasureDefinition(MeasureDefinition.getMeasureDefinitionByMN(mt));
 		    //h.setTimestamp();  // The created date is always the date the measure is being created on
-		  h.setActivity(Activity.getActivityByActivtyType(mt));
-		  EntityManager em = LifeCoachDao.instance.createEntityManager();
-		  EntityTransaction tx = em.getTransaction();
-		  tx.begin();
-	
+		
 
 
 
-	          em.persist(h);
-		  tx.commit();
-		  LifeCoachDao.instance.closeConnections(em);
-		  return h;
+	            h.setActivity(Activity.getActivityByActivtyType(mt));
+		    EntityManager em = LifeCoachDao.instance.createEntityManager();
+		    EntityTransaction tx = em.getTransaction();
+		    tx.begin();
+		    em.persist(h);
+		    tx.commit();
+		    LifeCoachDao.instance.closeConnections(em);
+		    return h;
 			
 		}
 		
@@ -227,13 +227,13 @@ public class HealthMeasureHistory implements Serializable {
 		 * @return
 		 */
 	public static HealthMeasureHistory saveHealthMeasureHistory(HealthMeasureHistory p) {
-		EntityManager em = LifeCoachDao.instance.createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		em.persist(p);
-		tx.commit();
-		LifeCoachDao.instance.closeConnections(em);
-		return p;
+		     EntityManager em = LifeCoachDao.instance.createEntityManager();
+		     EntityTransaction tx = em.getTransaction();
+		     tx.begin();
+		     em.persist(p);
+		     tx.commit();
+		     LifeCoachDao.instance.closeConnections(em);
+		    return p;
 		}
 		
 		/**
@@ -241,28 +241,31 @@ public class HealthMeasureHistory implements Serializable {
 		 * @param p
 		 * @return
 		 */
-	public static HealthMeasureHistory updateHealthMeasureHistory(HealthMeasureHistory p) {
-		EntityManager em = LifeCoachDao.instance.createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		p=em.merge(p);
-		tx.commit();
-		LifeCoachDao.instance.closeConnections(em);
-		return p;
+
+
+
+		public static HealthMeasureHistory updateHealthMeasureHistory(HealthMeasureHistory p) {
+			EntityManager em = LifeCoachDao.instance.createEntityManager();
+			EntityTransaction tx = em.getTransaction();
+			tx.begin();
+			p=em.merge(p);
+			tx.commit();
+		    LifeCoachDao.instance.closeConnections(em);
+		    return p;
 		}
 		
 		/**
 		 * delete history
 		 * @param p
 		 */
-	public static void removeHealthMeasureHistory(HealthMeasureHistory p) {
-		EntityManager em = LifeCoachDao.instance.createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		p=em.merge(p);
-		em.remove(p);
-		tx.commit();
-		LifeCoachDao.instance.closeConnections(em);
+		public static void removeHealthMeasureHistory(HealthMeasureHistory p) {
+			EntityManager em = LifeCoachDao.instance.createEntityManager();
+			EntityTransaction tx = em.getTransaction();
+			tx.begin();
+		    p=em.merge(p);
+		    em.remove(p);
+		    tx.commit();
+		    LifeCoachDao.instance.closeConnections(em);
 		}
 
 }

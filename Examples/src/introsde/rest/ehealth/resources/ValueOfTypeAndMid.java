@@ -63,10 +63,10 @@ public class ValueOfTypeAndMid {
 	
 	@GET
 	@Produces({ MediaType.APPLICATION_XML, MediaType.TEXT_XML })
-        public HealthMeasureHistory getHistoryByid() {
+    public HealthMeasureHistory getHistoryByid() {
 
         Person person = Person.getPersonById(this.id);
-        Activity activity = Activity.getActivityByActivtyType(this.activity_type);
+       Activity activity = Activity.getActivityByActivtyType(this.activity_type);
         
         if (person == null||activity == null) {
         	System.out.println("[Error] Get: Person with id " + this.id + " not found");
@@ -76,28 +76,28 @@ public class ValueOfTypeAndMid {
         //System.out.println("Returning person with id :="+"    " + person.getIdPerson()+" "+ "and measuretype  := "+"  " + at.getName() +""+"with mid:="+" "+at.getIdActivity() );
         //return ActivityPreference .getActivityById_ActivityType_ActivityId(id, activity_type, activity_id);
         return HealthMeasureHistory.getHistoryByPersonAndTypeAndactivity_id(person, activity, this.activity_id);
-        }
+    }
 	
 	
 	
 	@PUT
 	@Consumes({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON,MediaType.TEXT_XML })
 	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON,MediaType.TEXT_XML })
-        public HealthMeasureHistory putActivity(HealthMeasureHistory hmh) {
+   public HealthMeasureHistory putActivity(HealthMeasureHistory hmh) {
 
 		int n= HealthMeasureHistory.getAll().size();
 		HealthMeasureHistory h = new HealthMeasureHistory();
-	        Activity a =	Activity.getActivityByActivtyType(this.activity_type);
+	    Activity a =	Activity.getActivityByActivtyType(this.activity_type);
 	    
 
-	        Person p= Person.getPersonById(this.id);
+	    Person p= Person.getPersonById(this.id);
 		HealthMeasureHistory h1=HealthMeasureHistory.getHistoryByPersonAndTypeAndactivity_id(p, a, this.activity_id);
 	   
 
 		if (h1== null) {
 	
-		     System.out.println("can not find the history");
-		     return null;
+		  System.out.println("can not find the history");
+		  return null;
 			
 		} else {
 
@@ -118,14 +118,14 @@ public class ValueOfTypeAndMid {
 	@POST
 	@Consumes({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON,MediaType.TEXT_XML })
 	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON,MediaType.TEXT_XML })
-        public HealthMeasureHistory postActivity(HealthMeasureHistory h) {
+   public HealthMeasureHistory postActivity(HealthMeasureHistory h) {
 
-	     int n= HealthMeasureHistory.getAll().size();
+		int n= HealthMeasureHistory.getAll().size();
 		
-	     h.setIdMeasureHistory(n+1);
-	     HealthMeasureHistory hm = HealthMeasureHistory.saveHistoryByPersonAndTypeAndactivity_id(h, this.activity_type, this.activity_id, this.id);
+	        h.setIdMeasureHistory(n+1);
+	        HealthMeasureHistory hm = HealthMeasureHistory.saveHistoryByPersonAndTypeAndactivity_id(h, this.activity_type, this.activity_id, this.id);
 	        
-	     return hm;
+	        return hm;
     }
 	
 	

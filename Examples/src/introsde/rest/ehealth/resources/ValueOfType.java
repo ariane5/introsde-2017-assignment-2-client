@@ -85,10 +85,10 @@ public class ValueOfType {
 	public ActivityPreference saveHistory(ActivityPreference h ) {
 		List<ActivityPreference> ac = ActivityPreference.getAll();
 		int count = ac.size();
-	        h.setIdActivityPreference(count+1);
+	     h.setIdActivityPreference(count+1);
 		ActivityPreference hm = ActivityPreference.saveActivity(h, this.id , this.activity_type);
 	        
-	        return hm;
+	     return hm;
 	     }
 	
 	
@@ -98,7 +98,7 @@ public class ValueOfType {
 	// Allows to type http://localhost:599/base_url/1
 	// 1 will be treaded as parameter todo and passed to ValueOfTypeAndMid
 	
-        @Path("{activity_id}")
+    @Path("{activity_id}")
 	public ValueOfTypeAndMid getPerson(@PathParam("activity_id") int activity_id) {
 			
 		return new ValueOfTypeAndMid(uriInfo, request, id,activity_type,activity_id);

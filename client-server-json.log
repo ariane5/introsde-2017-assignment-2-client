@@ -34,9 +34,9 @@ Request #7: GET /person/last_person_id Accept:application/json Content-type: app
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?><healthMeasureHistories></healthMeasureHistories>
 
 Request #7: GET /person/last_person_id Accept:application/json Content-type: application/json
-=> Result: error
+=> Result: ok
 => HTTP Status: 200
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?><healthMeasureHistories></healthMeasureHistories>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?><healthMeasureHistories><healthMeasureHistory><description>economics</description><activity_id>5</activity_id><place>povo</place><startdate>2017-09-13T9:00:00.0</startdate></healthMeasureHistory></healthMeasureHistories>
 
 Request #8: GET person/1/sport/1 Accept:application/json Content-type: application/json
 => Result: ok
@@ -46,10 +46,10 @@ Request #8: GET person/1/sport/1 Accept:application/json Content-type: applicati
 Request #9: POST /person/1/sport Accept:application/json Content-type: application/json
 => Result: ok
 => HTTP Status: 200
-{"idActivityPreference":6,"name":"sport","description":"bike race","place":"trento","startdate":"1-11-1978"}
+{"idActivityPreference":8,"name":"sport","description":"bike race","place":"trento","startdate":"1-11-1978"}
 
 Request #10: PUT person/1/sport/1 Accept:application/json Content-type: application/json
 => Result: ok
 => HTTP Status: 200
-{"description":"walking","place":"citta","startdate":"1-11-1978","activity_id":3}
+{"description":"walking","place":"citta","startdate":"1-11-1978","activity_id":7}
 

@@ -12,10 +12,13 @@ import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceUnit;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Request;
 import javax.ws.rs.core.UriInfo;
 
@@ -23,6 +26,14 @@ import javax.ws.rs.core.UriInfo;
 @LocalBean//Will map the resource to the URL /ehealth/v2
 @Path("/activitypreference")
 public class ressourceActivityPreference {
+	@GET
+	@Produces({MediaType.TEXT_XML,  MediaType.APPLICATION_JSON ,  MediaType.APPLICATION_XML })
+	public List<ActivityPreference> getPersonsBrowser() {
+		System.out.println("Getting list of people...");
+	    List<ActivityPreference> people = ActivityPreference.getAll();
+	    System.out.println("I'VE GOT THE LIST OF PEOPLE.");
+		return people;
+	}
 
 	// Allows to insert contextual objects into the class,
 			// e.g. ServletContext, Request, Response, UriInfo
@@ -32,7 +43,7 @@ public class ressourceActivityPreference {
 			Request request;
 		    private static int count;
 			// THIS IS NOT WORKING
-			@PersistenceUnit(unitName="assignment")
+			@PersistenceUnit(unitName="assign21")
 			EntityManager entityManager;
 			
 			@POST

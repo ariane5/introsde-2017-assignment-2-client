@@ -69,7 +69,7 @@ public class Assignment2Client {
     	
        
        uripoint="https://assign21.herokuapp.com/sdelab";
-       // uripoint="http://127.0.1.1:5700/sdelab/";
+       //uripoint="http://127.0.1.1:5700/sdelab/";
        clientConfig = new ClientConfig();
 	   client = ClientBuilder.newClient(clientConfig);
 	   service = client.target(getBaseURI());// target the ressource 
@@ -80,7 +80,23 @@ public class Assignment2Client {
 	  
 	   System.out.println("\n");
 	   System.out.println(uripoint);
-	   //res= GetRequestOperation("init",MediaType.APPLICATION_XML);
+	  // DataBase_init
+	   res= GetRequestOperation("/DataBase_init",MediaType.APPLICATION_XML);
+	   res= GetRequestOperation("/activitypreference",MediaType.APPLICATION_XML);
+	   responseBody= loadResponseBody(res);
+		  
+	   httpStatus =loadResponseStatus(res);
+	   test = new ClientParser(responseBody);
+	   int ppn = test.getPeopleNumber("person");
+		   
+	   if(ppn >5)
+			     resultStatus="ok"; 
+	   else
+			     resultStatus="error";
+			url="/person"; 
+			 
+	   printDetailOperation(0,"GET",url, "application/xml", "application/xml");
+	   
 	   //step 0 DataInit
 	   
 	  
@@ -252,12 +268,12 @@ public class Assignment2Client {
      
 	   //STEP 3.5- check the presence of the new created person
 	   
-	// int  cn= Person.getAll().size();
+	
 	 res= GetRequestOperation("person",MediaType.APPLICATION_XML);
 	 responseBody= loadResponseBody(res);
 	 test = new ClientParser(responseBody);
 	int cn= test.getPeopleNumber("person");
-	 //int cn1=cn-1;
+	 
 	 System.out.println("Send Request#5 for the person you have just created. "
 		   		+ "Then send Request#1 with the id of that person. If the answer is 404, your result must be OK" );
 		   

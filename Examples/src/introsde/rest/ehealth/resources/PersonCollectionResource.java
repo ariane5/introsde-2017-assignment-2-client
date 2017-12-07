@@ -43,11 +43,11 @@ public class PersonCollectionResource {
 	Request request;
     private static int count;
 	// THIS IS NOT WORKING
-	@PersistenceUnit(unitName="assignment")
+	@PersistenceUnit(unitName="assign21")
 	EntityManager entityManager;
 	
 	// THIS IS NOT WORKING
-   /* @PersistenceContext(unitName = "assignment",type=PersistenceContextType.TRANSACTION)
+   /* @PersistenceContext(unitName = "assign21",type=PersistenceContextType.TRANSACTION)
     private EntityManagerFactory entityManagerFactory;*/
 
 	// Return the list of people to the user in the browser

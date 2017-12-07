@@ -1,5 +1,55 @@
 
 
+ Request #0 : GET  /person Accept: application/xml ContentType: application/xml 
+ => Result: error 
+ => HTTP Status: 200
+ <activityPreferences>
+  <activitypreference>
+    <description>swimming</description>
+    <idActivityPreference>1</idActivityPreference>
+    <name>sport</name>
+    <place>Trento city</place>
+    <startdate>2017-09-13T12:00:00.0</startdate>
+  </activitypreference>
+  <activitypreference>
+    <description>football</description>
+    <idActivityPreference>2</idActivityPreference>
+    <name>sport</name>
+    <place>sanbartolameo</place>
+    <startdate>2017-09-13T19:00:00.0</startdate>
+  </activitypreference>
+  <activitypreference>
+    <description>swimming</description>
+    <idActivityPreference>3</idActivityPreference>
+    <name>sport</name>
+    <place>Trento city</place>
+    <startdate>2017-09-13T12:00:00.0</startdate>
+  </activitypreference>
+  <activitypreference>
+    <description>football</description>
+    <idActivityPreference>4</idActivityPreference>
+    <name>sport</name>
+    <place>sanbartolameo</place>
+    <startdate>2017-09-13T19:00:00.0</startdate>
+  </activitypreference>
+  <activitypreference>
+    <description>discussion</description>
+    <idActivityPreference>5</idActivityPreference>
+    <name>social</name>
+    <place>sanbartolameo</place>
+    <startdate>2017-09-13T20:00:00.0</startdate>
+  </activitypreference>
+  <activitypreference>
+    <description>economics</description>
+    <idActivityPreference>6</idActivityPreference>
+    <name>school</name>
+    <place>povo</place>
+    <startdate>2017-09-13T9:00:00.0</startdate>
+  </activitypreference>
+</activityPreferences>
+
+
+
  Request #1 : GET  /person Accept: application/xml ContentType: application/xml 
  => Result: error 
  => HTTP Status: 200
@@ -7,65 +57,33 @@
   <person>
     <preferences/>
     <birthdate>17-02-1978</birthdate>
-    <firstname>Jonas JSON</firstname>
+    <firstname>mario</firstname>
     <idPerson>1</idPerson>
     <lastname>marco</lastname>
   </person>
   <person>
-    <preferences>
-      <activity>
-        <description>swimming</description>
-        <idActivityPreference>1</idActivityPreference>
-        <name>sport</name>
-        <place>Trento city</place>
-        <startdate>2017-09-13T12:00:00.0</startdate>
-      </activity>
-    </preferences>
+    <preferences/>
     <birthdate>11-12-1988</birthdate>
     <firstname>john</firstname>
     <idPerson>2</idPerson>
     <lastname>john</lastname>
   </person>
   <person>
-    <preferences>
-      <activity>
-        <description>football</description>
-        <idActivityPreference>2</idActivityPreference>
-        <name>sport</name>
-        <place>sanbartolameo</place>
-        <startdate>2017-09-13T19:00:00.0</startdate>
-      </activity>
-    </preferences>
+    <preferences/>
     <birthdate>18-09-1958</birthdate>
     <firstname>marc</firstname>
     <idPerson>3</idPerson>
     <lastname>marc</lastname>
   </person>
   <person>
-    <preferences>
-      <activity>
-        <description>discussion</description>
-        <idActivityPreference>3</idActivityPreference>
-        <name>social</name>
-        <place>sanbartolameo</place>
-        <startdate>2017-09-13T20:00:00.0</startdate>
-      </activity>
-    </preferences>
+    <preferences/>
     <birthdate>19-07-1968</birthdate>
     <firstname>paul</firstname>
     <idPerson>4</idPerson>
     <lastname>paul</lastname>
   </person>
   <person>
-    <preferences>
-      <activity>
-        <description>economics</description>
-        <idActivityPreference>4</idActivityPreference>
-        <name>school</name>
-        <place>povo</place>
-        <startdate>2017-09-13T9:00:00.0</startdate>
-      </activity>
-    </preferences>
+    <preferences/>
     <birthdate>20-10-1990</birthdate>
     <firstname>esther</firstname>
     <idPerson>5</idPerson>
@@ -81,7 +99,7 @@
  <person>
   <preferences/>
   <birthdate>17-02-1978</birthdate>
-  <firstname>Jonas JSON</firstname>
+  <firstname>mario</firstname>
   <idPerson>1</idPerson>
   <lastname>marco</lastname>
 </person>
@@ -193,9 +211,16 @@
 
 
  Request #7 : GET  /person/last_person_id Accept: application/xml ContentType: application/xml 
- => Result: error 
+ => Result: ok 
  => HTTP Status: 200
- <healthMeasureHistories/>
+ <healthMeasureHistories>
+  <healthMeasureHistory>
+    <description>economics</description>
+    <activity_id>5</activity_id>
+    <place>povo</place>
+    <startdate>2017-09-13T9:00:00.0</startdate>
+  </healthMeasureHistory>
+</healthMeasureHistories>
 
 
 
@@ -230,7 +255,7 @@
  => HTTP Status: 200
  <activitypreference>
   <description>bike race</description>
-  <idActivityPreference>5</idActivityPreference>
+  <idActivityPreference>7</idActivityPreference>
   <name>sport</name>
   <place>trento</place>
   <startdate>1-11-1978</startdate>
@@ -243,7 +268,7 @@
  => HTTP Status: 200
  <healthMeasureHistory>
   <description>walking</description>
-  <activity_id>3</activity_id>
+  <activity_id>6</activity_id>
   <place>centro citta</place>
   <startdate>2017-10-13T13:27:00.0</startdate>
 </healthMeasureHistory>
