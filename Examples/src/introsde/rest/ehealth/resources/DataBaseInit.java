@@ -2,7 +2,7 @@ package introsde.rest.ehealth.resources;
 
 import introsde.rest.ehealth.model.Activity;
 import introsde.rest.ehealth.model.ActivityPreference;
-import introsde.rest.ehealth.model.HealthMeasureHistory;
+import introsde.rest.ehealth.model.Activity_Type;
 import introsde.rest.ehealth.model.Person;
 
 import java.io.IOException;
@@ -112,10 +112,10 @@ public class DataBaseInit {
 	}
 	
 	public void CreateHistory(String d,String p,String s,String name,int idP) throws IOException {
-		HealthMeasureHistory h= new HealthMeasureHistory();
+		Activity_Type h= new Activity_Type();
 		Person person= Person.getPersonById(idP);
 		Activity a = Activity.getActivityByActivtyType(name);
-		List<HealthMeasureHistory> ht = HealthMeasureHistory.getAll();
+		List<Activity_Type> ht = Activity_Type.getAll();
 		int count = ht.size();
 		h.setActivity(a);
 		h.setDescription(d);
@@ -124,7 +124,7 @@ public class DataBaseInit {
 		h.setStartdate(s);
 		
         h.setIdMeasureHistory(count +1);
-        HealthMeasureHistory.saveHealthMeasureHistory(h);
+        Activity_Type.saveActivity_Type(h);
 		
 	}
 

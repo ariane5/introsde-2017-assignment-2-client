@@ -14,7 +14,7 @@ import javax.ws.rs.core.*;
 import introsde.rest.ehealth.client.*;
 import introsde.rest.ehealth.resources.*;
 import introsde.rest.ehealth.model.Activity;
-import introsde.rest.ehealth.model.HealthMeasureHistory;
+import introsde.rest.ehealth.model.Activity_Type;
 import introsde.rest.ehealth.model.Person;
 
 import org.glassfish.jersey.client.ClientConfig;
@@ -82,7 +82,7 @@ public class Assignment2Client {
 	   System.out.println(uripoint);
 	  // DataBase_init
 	   res= GetRequestOperation("/DataBase_init",MediaType.APPLICATION_XML);
-	   res= GetRequestOperation("/activitypreference",MediaType.APPLICATION_XML);
+	  // res= GetRequestOperation("/activitypreference",MediaType.APPLICATION_XML);
 	   responseBody= loadResponseBody(res);
 		  
 	   httpStatus =loadResponseStatus(res);
@@ -97,29 +97,6 @@ public class Assignment2Client {
 			 
 	   printDetailOperation(0,"GET",url, "application/xml", "application/xml");
 	   
-	   //step 0 DataInit
-	   
-	  
-	   /*res = PostRequestOperation("/activity/sport",MediaType.APPLICATION_XML,"",MediaType.APPLICATION_XML);
-	   res = PostRequestOperation("/activity/social",MediaType.APPLICATION_XML,"",MediaType.APPLICATION_XML);
-	   res = PostRequestOperation("/activity/school",MediaType.APPLICATION_XML,"",MediaType.APPLICATION_XML);
-	   res = PostRequestOperation("person",MediaType.APPLICATION_XML,"<person><firstname>Matthieu</firstname><lastname>Marc</lastname>"
-	   		+ "<birthdate>1-11-1978</birthdate></person>",MediaType.APPLICATION_XML);
-	   res = PostRequestOperation("person",MediaType.APPLICATION_XML,"<person><firstname>paul</firstname><lastname>jonas</lastname>"
-		   		+ "<birthdate>1-11-1978</birthdate></person>",MediaType.APPLICATION_XML);
-	   res = PostRequestOperation("person",MediaType.APPLICATION_XML,"<person><firstname>ivan</firstname><lastname>Festo</lastname>"
-		   		+ "<birthdate>1-11-1978</birthdate></person>",MediaType.APPLICATION_XML);
-	   res = PostRequestOperation("person",MediaType.APPLICATION_XML,"<person><firstname>Antonio</firstname><lastname>Christian</lastname>"
-		   		+ "<birthdate>1-11-1978</birthdate></person>",MediaType.APPLICATION_XML);
-	  // int count =Person.getAll().size();
-	   res = PostRequestOperation("/person/"+1+"/sport",MediaType.APPLICATION_XML,"<activitypreference><name>sport</name> <description>soccer</description>"+
-	           "<place>sanbartolameo</place><startdate>1-11-1978</startdate></activitypreference>",MediaType.APPLICATION_XML);
-	   res = PostRequestOperation("/person/"+2+"/sport",MediaType.APPLICATION_XML,"<activitypreference><name>sport</name> <description>playing football</description>"+
-	           "<place>trento</place><startdate>1-11-1978</startdate></activitypreference>",MediaType.APPLICATION_XML);
-	   res=PostRequestOperation("person/"+1+"/sport/1",MediaType.APPLICATION_XML,"<healthMeasureHistory><description>dancing salsa</description><place>milano</place>"+
-		        "<startdate>2017-10-13T13:27:00.0</startdate></healthMeasureHistory>",MediaType.APPLICATION_XML);
-	   res=PostRequestOperation("person/"+1+"/sport/2",MediaType.APPLICATION_XML,"<healthMeasureHistory><description>playing volley ball</description><place>piazza dante</place>"+
-		        "<startdate>2017-10-13T13:27:00.0</startdate></healthMeasureHistory>",MediaType.APPLICATION_XML);*/
 	   
 	   
 	   
@@ -357,12 +334,12 @@ public class Assignment2Client {
 
 		   
 	  test = new ClientParser(responseBody);
-		  //test.checkActivity("healthMeasureHistory/description")
+		  //test.checkActivity("Activity_Type/description")
 	  
-		// Node node6 = test.savePersonId("healthMeasureHistory/activity_id");
+		// Node node6 = test.savePersonId("Activity_Type/activity_id");
 	    
 
-	  if(test.getPeopleNumber("healthMeasureHistory")>0)
+	  if(test.getPeopleNumber("Activity_Type")>0)
 			     resultStatus="ok"; 
 	  else
 			     resultStatus="error";
@@ -385,8 +362,8 @@ public class Assignment2Client {
 			   
 			   
 		  test = new ClientParser(responseBody);
-			  //test.checkActivity("healthMeasureHistory/description")
-		  if(test.getPeopleNumber("healthMeasureHistory")>0)
+			  //test.checkActivity("Activity_Type/description")
+		  if(test.getPeopleNumber("Activity_Type")>0)
 				     resultStatus="ok"; 
 		  else
 				     resultStatus="error";
@@ -408,7 +385,7 @@ public class Assignment2Client {
 		   
 		   
 
-		  //test.checkActivity("healthMeasureHistory/description")
+		  //test.checkActivity("Activity_Type/description")
 	  if( httpStatus==200)
 			     resultStatus="ok"; 
 	  else
@@ -432,8 +409,8 @@ public class Assignment2Client {
 		   
 		   
 	 test = new ClientParser(responseBody);
-	 String number_activity =test.getPeopleNumber("healthMeasureHistory")+"activities";// number of activities
-	 if(test.getPeopleNumber("healthMeasureHistory")>0)
+	 String number_activity =test.getPeopleNumber("Activity_Type")+"activities";// number of activities
+	 if(test.getPeopleNumber("Activity_Type")>0)
 			     resultStatus="ok"; 
 	 else
 			     resultStatus="error";
@@ -458,7 +435,7 @@ public class Assignment2Client {
 		   System.out.println(httpStatus);
 		   //test = new ClientParser(responseBody);
 		   test = new ClientParser(responseBody);
-			  //test.checkActivity("healthMeasureHistory/description")
+			  //test.checkActivity("Activity_Type/description")
 			   if(test.getPeopleNumber("activitypreference")==1)
 			     resultStatus="ok"; 
 			else
@@ -466,30 +443,37 @@ public class Assignment2Client {
 			url="/person"; 
 		   printDetailOperation(9,"POST",url, "application/xml", "application/xml");
 		   
-		   
 	 //STEP 3.10-update a person with a given activity an activity_id
-    /* int hn = HealthMeasureHistory.getAll().size();
+    /* int hn = Activity_Type.getAll().size();
      res= GetRequestOperation("person",MediaType.APPLICATION_XML);
 	 responseBody= loadResponseBody(res);
 	 test = new ClientParser(responseBody);
 	int cn= test.getPeopleNumber("person");*/
-	 res=PutRequestOperation("person/"+first_person_id+"/sport/1",MediaType.APPLICATION_XML,"<healthMeasureHistory>"+
+	 res=PutRequestOperation("person/"+first_person_id+"/sport/1",MediaType.APPLICATION_XML,"<ActivityType>"+
 	        "<description>walking</description>"+
 	        "<place>centro citta</place>"+
 	        "<startdate>2017-10-13T13:27:00.0</startdate>"+
-	       "</healthMeasureHistory>",MediaType.APPLICATION_XML);
-				   responseBody= loadResponseBody(res);
+	       "</ActivityType>",MediaType.APPLICATION_XML);
+	 System.out.println(res);
+	 responseBody= loadResponseBody(res);
 				   
-   //  int hn1 = HealthMeasureHistory.getAll().size();
+   //  int hn1 = Activity_Type.getAll().size();
 	  httpStatus =loadResponseStatus(res);
 	 if(httpStatus==200||httpStatus==202)
 					     resultStatus="ok"; 
      else
 					     resultStatus="error";
 	 url="person/"+first_person_id+"/sport/1"; 
-	 printDetailOperation(10,"PUT",url, "application/xml", "application/xml");
+	//printDetailOperation(10,"PUT",url, "application/xml", "application/xml");
 		   
-		   
+	 xmlLogWriter.println("Request #" +10 + ": " +"PUT"+ " " + url + " Accept:" + MediaType.APPLICATION_XML + " Content-type: " + MediaType.APPLICATION_XML ); 
+	 xmlLogWriter.println("=> Result: " + resultStatus);
+	 xmlLogWriter.println("=> HTTP Status: " + httpStatus);
+
+	    if( responseBody != null && !responseBody.isEmpty() )
+	      xmlLogWriter.println(responseBody);
+
+	    xmlLogWriter.println("");
 	//STEP 3.9-a person with a stored activity_id and activity : JSON VERSION 
 		   
 	res = PostRequestOperation("/person/"+first_person_id+"/sport",MediaType.APPLICATION_JSON,"{"
@@ -502,7 +486,7 @@ public class Assignment2Client {
 	httpStatus =loadResponseStatus(res);
     System.out.println(httpStatus);
 				   
-					  //test.checkActivity("healthMeasureHistory/description")
+					  //test.checkActivity("Activity_Type/description")
 	if(httpStatus==200||httpStatus==202)
 					     resultStatus="ok"; 
    else
@@ -577,7 +561,7 @@ return response.getStatus();
 
 
 
-public static String prettyFormat(String input, int indent) {
+public static String prettyFormat(String input, int indent)  {
     try {
         Source xmlInput = new StreamSource(new StringReader(input));
         StringWriter stringWriter = new StringWriter();
@@ -592,7 +576,7 @@ public static String prettyFormat(String input, int indent) {
         //xmlLogWriter.println(xmlOutput.getWriter().toString());
         return xmlOutput.getWriter().toString();
     } catch (Exception e) {
-        throw new RuntimeException(e); // simple exception handling, please review it
+       throw new RuntimeException(e); // simple exception handling
     }
 }
 
@@ -602,7 +586,7 @@ public static String prettyFormat(String input) {
 
 
 //for this method I need to provide those parameters:resultStatus,httpStatus,responseBody   (everytime I called it)p
-private static void printDetailOperationXml(int RequestNumber,String HttpMethod,String url,String acceptType,String contentType){
+private static void printDetailOperationXml(int RequestNumber,String HttpMethod,String url,String acceptType,String contentType) {
 String format="\n\n Request #%d : %s  %s Accept: %s ContentType: %s \n => Result: %s \n => HTTP Status: %d\n %s";
 String xmlWellFormed=prettyFormat(responseBody);
 String log = String.format(format,RequestNumber,HttpMethod,url, acceptType,contentType,resultStatus,httpStatus,xmlWellFormed);
@@ -625,7 +609,7 @@ System.out.print(log);
  * @param contentType
  * @throws TransformerException
  */
-private static void printDetailOperation(int RequestNumber,String HttpMethod,String url,String acceptType,String contentType) throws TransformerException {
+private static void printDetailOperation(int RequestNumber,String HttpMethod,String url,String acceptType,String contentType)  {
   if(acceptType == "application/xml")
 	  printDetailOperationXml(RequestNumber,HttpMethod, url,acceptType, contentType);
   else
@@ -645,7 +629,7 @@ private static void printDetailOperation(int RequestNumber,String HttpMethod,Str
    * @param contentType
    * @throws TransformerException
    */
-  private static void printDetailOperationJson(int RequestNumber,String HttpMethod,String url,String acceptType,String contentType) throws TransformerException {
+  private static void printDetailOperationJson(int RequestNumber,String HttpMethod,String url,String acceptType,String contentType)  {
     jsonLogWriter.println("Request #" +RequestNumber + ": " + HttpMethod + " " + url + " Accept:" + acceptType + " Content-type: " + contentType ); 
     jsonLogWriter.println("=> Result: " + resultStatus);
     jsonLogWriter.println("=> HTTP Status: " + httpStatus);

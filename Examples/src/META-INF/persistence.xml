@@ -5,7 +5,7 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org
         <class>introsde.rest.ehealth.model.ActivityPreference</class>
         <class>introsde.rest.ehealth.model.Activity</class>
         <class>introsde.rest.ehealth.model.Person</class>
-        <class>introsde.rest.ehealth.model.HealthMeasureHistory</class>
+        <class>introsde.rest.ehealth.model.Activity_Type</class>
 	<properties>
            <!-- <property name="eclipselink.ddl-generation" value="create-or-extend-tables" />-->
             <property name="hibernate.archive.autodetection" value="class, hbm"/>

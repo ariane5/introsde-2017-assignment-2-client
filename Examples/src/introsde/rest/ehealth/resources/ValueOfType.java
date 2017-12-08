@@ -60,7 +60,7 @@ public class ValueOfType {
 	
 	@GET
 	@Produces({ MediaType.APPLICATION_XML,MediaType.TEXT_XML })
-	public List<HealthMeasureHistory> getHistory() {
+	public List<Activity_Type> getHistory() {
 
 	    Person person = Person.getPersonById(this.id);
 	    System.out.println("success 3");
@@ -72,7 +72,7 @@ public class ValueOfType {
 	        }
 	    System.out.println("success 2");
 	    System.out.println("Returning person with id :="+"" + person.getIdPerson()+""+ "and measuretype  := "+"" + md.getName() +""+""+md.getIdActivity() );
-	    return HealthMeasureHistory.getHistoryByPersonAndMeasureType(person, md);
+	    return Activity_Type.getHistoryByPersonAndMeasureType(person, md);
 	    
 	 }
 	
