@@ -1,6 +1,6 @@
 # introsde-2017-assignment-2-client
 
-dentification
+# identification
 
 Student: Wambo Ariane
 
@@ -12,7 +12,7 @@ project
 The Client  project consist mainly on one package: introsde.rest.ehealth package with two classes :
   Assignment2Client.java: contains the link which connect to heroku
   ClientParser: a parser of the responses
-
+The task are all the tasks required from the client side in the assignment2 from 1 to 10
 
 # Execution
 
