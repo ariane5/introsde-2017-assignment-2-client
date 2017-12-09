@@ -1,7 +1,7 @@
 
 
  Request #0 : GET  /person Accept: application/xml ContentType: application/xml 
- => Result: error 
+ => Result: ok 
  => HTTP Status: 200
  <people>
   <person>
@@ -39,12 +39,47 @@
     <idPerson>5</idPerson>
     <lastname>esther</lastname>
   </person>
+  <person>
+    <preferences/>
+    <birthdate>17-02-1978</birthdate>
+    <firstname>mario</firstname>
+    <idPerson>6</idPerson>
+    <lastname>marco</lastname>
+  </person>
+  <person>
+    <preferences/>
+    <birthdate>11-12-1988</birthdate>
+    <firstname>john</firstname>
+    <idPerson>7</idPerson>
+    <lastname>john</lastname>
+  </person>
+  <person>
+    <preferences/>
+    <birthdate>18-09-1958</birthdate>
+    <firstname>marc</firstname>
+    <idPerson>8</idPerson>
+    <lastname>marc</lastname>
+  </person>
+  <person>
+    <preferences/>
+    <birthdate>19-07-1968</birthdate>
+    <firstname>paul</firstname>
+    <idPerson>9</idPerson>
+    <lastname>paul</lastname>
+  </person>
+  <person>
+    <preferences/>
+    <birthdate>20-10-1990</birthdate>
+    <firstname>esther</firstname>
+    <idPerson>10</idPerson>
+    <lastname>esther</lastname>
+  </person>
 </people>
 
 
 
  Request #1 : GET  /person Accept: application/xml ContentType: application/xml 
- => Result: error 
+ => Result: ok 
  => HTTP Status: 200
  <people>
   <person>
@@ -80,6 +115,41 @@
     <birthdate>20-10-1990</birthdate>
     <firstname>esther</firstname>
     <idPerson>5</idPerson>
+    <lastname>esther</lastname>
+  </person>
+  <person>
+    <preferences/>
+    <birthdate>17-02-1978</birthdate>
+    <firstname>mario</firstname>
+    <idPerson>6</idPerson>
+    <lastname>marco</lastname>
+  </person>
+  <person>
+    <preferences/>
+    <birthdate>11-12-1988</birthdate>
+    <firstname>john</firstname>
+    <idPerson>7</idPerson>
+    <lastname>john</lastname>
+  </person>
+  <person>
+    <preferences/>
+    <birthdate>18-09-1958</birthdate>
+    <firstname>marc</firstname>
+    <idPerson>8</idPerson>
+    <lastname>marc</lastname>
+  </person>
+  <person>
+    <preferences/>
+    <birthdate>19-07-1968</birthdate>
+    <firstname>paul</firstname>
+    <idPerson>9</idPerson>
+    <lastname>paul</lastname>
+  </person>
+  <person>
+    <preferences/>
+    <birthdate>20-10-1990</birthdate>
+    <firstname>esther</firstname>
+    <idPerson>10</idPerson>
     <lastname>esther</lastname>
   </person>
 </people>
@@ -118,33 +188,33 @@
  <person>
   <birthdate>1-11-1978</birthdate>
   <firstname>Matthieu</firstname>
-  <idPerson>6</idPerson>
+  <idPerson>11</idPerson>
   <lastname>Marc</lastname>
 </person>
 
 
 
- Request #5 : GET  /person/7 Accept: application/xml ContentType: application/xml 
+ Request #5 : GET  /person/12 Accept: application/xml ContentType: application/xml 
  => Result: ok 
  => HTTP Status: 200
  <person>
   <preferences/>
   <birthdate>01-01-1967</birthdate>
   <firstname>Chuck JSON</firstname>
-  <idPerson>7</idPerson>
+  <idPerson>12</idPerson>
   <lastname>Norris</lastname>
 </person>
 
 
 
- Request #5 : GET  /person/7 Accept: application/xml ContentType: application/xml 
+ Request #5 : GET  /person/12 Accept: application/xml ContentType: application/xml 
  => Result: error 
  => HTTP Status: 200
  <person>
   <preferences/>
   <birthdate>01-01-1967</birthdate>
   <firstname>Chuck JSON</firstname>
-  <idPerson>7</idPerson>
+  <idPerson>12</idPerson>
   <lastname>Norris</lastname>
 </person>
 
@@ -154,6 +224,9 @@
  => Result: error 
  => HTTP Status: 200
  <activities>
+  <activity_type>sport</activity_type>
+  <activity_type>social</activity_type>
+  <activity_type>school</activity_type>
   <activity_type>sport</activity_type>
   <activity_type>social</activity_type>
   <activity_type>school</activity_type>
@@ -168,6 +241,46 @@
   <activityType>
     <description>swimming</description>
     <activity_id>1</activity_id>
+    <place>Trento city</place>
+    <startdate>2017-09-13T12:00:00.0</startdate>
+  </activityType>
+  <activityType>
+    <description>swimming</description>
+    <activity_id>6</activity_id>
+    <place>Trento city</place>
+    <startdate>2017-09-13T12:00:00.0</startdate>
+  </activityType>
+</activity_Types>
+
+
+
+ Request #7 : GET  /person/first_person_id Accept: application/xml ContentType: application/xml 
+ => Result: error 
+ => HTTP Status: 200
+ <activity_Types/>
+
+
+
+ Request #7 : GET  /person/first_person_id Accept: application/xml ContentType: application/xml 
+ => Result: error 
+ => HTTP Status: 200
+ <activity_Types/>
+
+
+
+ Request #7 : GET  /person/first_person_id Accept: application/xml ContentType: application/xml 
+ => Result: error 
+ => HTTP Status: 200
+ <activity_Types>
+  <activityType>
+    <description>swimming</description>
+    <activity_id>1</activity_id>
+    <place>Trento city</place>
+    <startdate>2017-09-13T12:00:00.0</startdate>
+  </activityType>
+  <activityType>
+    <description>swimming</description>
+    <activity_id>6</activity_id>
     <place>Trento city</place>
     <startdate>2017-09-13T12:00:00.0</startdate>
   </activityType>
@@ -206,14 +319,28 @@
  Request #7 : GET  /person/last_person_id Accept: application/xml ContentType: application/xml 
  => Result: error 
  => HTTP Status: 200
- <activity_Types>
-  <activityType>
-    <description>economics</description>
-    <activity_id>5</activity_id>
-    <place>povo</place>
-    <startdate>2017-09-13T9:00:00.0</startdate>
-  </activityType>
-</activity_Types>
+ <activity_Types/>
+
+
+
+ Request #7 : GET  /person/last_person_id Accept: application/xml ContentType: application/xml 
+ => Result: error 
+ => HTTP Status: 200
+ <activity_Types/>
+
+
+
+ Request #7 : GET  /person/last_person_id Accept: application/xml ContentType: application/xml 
+ => Result: error 
+ => HTTP Status: 200
+ <activity_Types/>
+
+
+
+ Request #7 : GET  /person/last_person_id Accept: application/xml ContentType: application/xml 
+ => Result: error 
+ => HTTP Status: 200
+ <activity_Types/>
 
 
 
@@ -239,6 +366,12 @@
     <place>Trento city</place>
     <startdate>2017-09-13T12:00:00.0</startdate>
   </activityType>
+  <activityType>
+    <description>swimming</description>
+    <activity_id>6</activity_id>
+    <place>Trento city</place>
+    <startdate>2017-09-13T12:00:00.0</startdate>
+  </activityType>
 </activity_Types>
 
 
@@ -248,7 +381,7 @@
  => HTTP Status: 200
  <activitypreference>
   <description>bike race</description>
-  <idActivityPreference>7</idActivityPreference>
+  <idActivityPreference>13</idActivityPreference>
   <name>sport</name>
   <place>trento</place>
   <startdate>1-11-1978</startdate>
@@ -257,4 +390,5 @@
 Request #10: PUT person/1/sport/1 Accept:application/xml Content-type: application/xml
 => Result: error
 => HTTP Status: 400
+<!doctype html><html lang="en"><head><title>HTTP Status 400 – Bad Request</title><style type="text/css">h1 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:22px;} h2 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:16px;} h3 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:14px;} body {font-family:Tahoma,Arial,sans-serif;color:black;background-color:white;} b {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;} p {font-family:Tahoma,Arial,sans-serif;background:white;color:black;font-size:12px;} a {color:black;} a.name {color:black;} .line {height:1px;background-color:#525D76;border:none;}</style></head><body><h1>HTTP Status 400 – Bad Request</h1><hr class="line" /><p><b>Type</b> Status Report</p><p><b>Message</b> Bad Request</p><p><b>Description</b> The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).</p><hr class="line" /><h3>Apache Tomcat/8.5.23</h3></body></html>
 
