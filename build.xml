@@ -90,7 +90,7 @@
             </copy>
         </target>
        
-        <target name="execute.client">
+        <target name="execute.client" depends="compile">
             <echo message="client start introsde.rest.ehealth.client.Assignment2Client in ${build.dir}" />
             <java classname="introsde.rest.ehealth.client.Assignment2Client" classpath="${build.dir}" fork="true">
                 <arg value="$JAVA_OPTS  -cp" />
